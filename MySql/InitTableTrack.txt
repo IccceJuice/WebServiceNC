@@ -1,0 +1,16 @@
+insert  into track (name, duration, album) VALUES ('Natural blues', 356, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('Flowers', 432, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('Lift Me Up', 556, 'Destroyed');
+insert  into track (name, duration, album) VALUES ('Honey', 156, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('In This World', 234, 'Innocents');
+insert  into track (name, duration, album) VALUES ('Spring', 765, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('Everloving', 178, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('The last day', 612, 'Innocents');
+insert  into track (name, duration, album) VALUES ('Mistake', 901, 'Destroyed');
+insert  into track (name, duration, album) VALUES ('Sunday', 499, 'Destroyed');
+insert  into track (name, duration, album) VALUES ('Bodyrock', 178, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('Disco Lies', 392, 'Innocents');
+insert  into track (name, duration, album) VALUES ('Pale horses', 298, 'Destroyed');
+insert  into track (name, duration, album) VALUES ('Find my baby', 196, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('The day', 923, 'Hotel Ambient');
+insert  into track (name, duration, album) VALUES ('A long time', 734, 'Hotel Ambient');
