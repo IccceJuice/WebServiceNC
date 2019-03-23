@@ -1,6 +1,7 @@
 package team25.musiclibrary.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,27 +17,27 @@ public class TrackService {
 
     @Transactional
     public List getAll() {
-        return trackDAO.getAllTracks();
+        return (List) trackDAO.findAll();
     }
 
     @Transactional
     public Track getTrack(int id) {
-        return trackDAO.getTrack(id);
+        return trackDAO.findById(id).get();
     }
 
     @Transactional
     public void addTrack(Track track) {
-        trackDAO.addTrack(track);
+        trackDAO.save(track);
     }
 
     @Transactional
     public void updateTrack(Track track) {
-        trackDAO.updateTrack(track);
+        trackDAO.save(track);
     }
 
     @Transactional
     public void deleteTrack(int id) {
-        trackDAO.deleteTrack(id);
+        trackDAO.deleteById(id);
     }
 
 }

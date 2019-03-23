@@ -1,15 +1,13 @@
 package team25.musiclibrary.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import team25.musiclibrary.entities.Track;
 import team25.musiclibrary.service.TrackService;
 
@@ -34,22 +32,14 @@ public class TrackController {
 
     @RequestMapping(value = "/addTrack", method = RequestMethod.POST, headers = "Accept=application/json")
     public String addTrack(@ModelAttribute("track") Track track) {
-        if(track.getId()==0)
-        {
-            trackService.addTrack(track);
-        }
-        else
-        {
-            trackService.updateTrack(track);
-        }
-
+        trackService.addTrack(track);
         return "redirect:/getAllTracks";
     }
 
     @RequestMapping(value = "/updateTrack/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
     public String updateTrack(@PathVariable("id") int id, Model model) {
-        model.addAttribute("track", this.trackService.getTrack(id));
-        model.addAttribute("listOfTracks", this.trackService.getAll());
+        model.addAttribute("track", trackService.getTrack(id));
+        model.addAttribute("listOfTracks", trackService.getAll());
         return "trackDetails";
     }
 
@@ -57,6 +47,11 @@ public class TrackController {
     public String deleteTrack(@PathVariable("id") int id) {
         trackService.deleteTrack(id);
         return "redirect:/getAllTracks";
+    }
+
+    @GetMapping("/")
+    public String hello(){
+        return "index";
     }
 }
 

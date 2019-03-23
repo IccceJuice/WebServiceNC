@@ -33,7 +33,7 @@ th {
 </style>
 </head>
 <body>
-<form:form method="post" modelAttribute="track" action="/MusicLibrary/addTrack">
+<form:form method="post" modelAttribute="track" action="/addTrack">
 <table>
 		<tr>
 			<th colspan="2">Add Track</th>
@@ -58,6 +58,7 @@ th {
 	</table> 
 </form:form>
 </br>
+<%--TODO There separate page--%>
 <h3>Track List</h3>
 <c:if test="${!empty listOfTracks}">
 	<table class="tg">

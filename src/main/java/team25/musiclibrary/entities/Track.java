@@ -5,8 +5,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name = "track")
-@Table(name = "track", schema = "webserver", catalog = "")
-public class Track implements Serializable{
+@Table(name = "track", schema = "music_store", catalog = "")
+public class Track {
 
     @Id
     @Column(name = "id")
@@ -60,4 +60,5 @@ public class Track implements Serializable{
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
 }
