@@ -19,6 +19,9 @@ public class Track {
     @Column(name = "duration")
     private int duration;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "artist")
+    private String artistName;
 
     public Track() {
     }

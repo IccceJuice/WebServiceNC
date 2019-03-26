@@ -1,7 +1,6 @@
 package team25.musiclibrary.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class TrackController {
         List<Track> listOfTracks = trackService.getAll();
         model.addAttribute("track", new Track());
         model.addAttribute("listOfTracks", listOfTracks);
-        return "trackDetails";
+        return "jsp/trackList";
     }
 
     @RequestMapping(value = "/getTrack/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
@@ -40,7 +39,7 @@ public class TrackController {
     public String updateTrack(@PathVariable("id") int id, Model model) {
         model.addAttribute("track", trackService.getTrack(id));
         model.addAttribute("listOfTracks", trackService.getAll());
-        return "trackDetails";
+        return "jsp/trackList";
     }
 
     @RequestMapping(value = "/deleteTrack/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
@@ -49,10 +48,7 @@ public class TrackController {
         return "redirect:/getAllTracks";
     }
 
-    @GetMapping("/")
-    public String hello(){
-        return "index";
-    }
+
 }
 
 
