@@ -35,18 +35,20 @@
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>			</form>		  </div>		</nav><div class="m-5">
     <div class="form-group" style=""></div>
-    <select class="form-control" onchange="window.location.href=this.options[this.selectedIndex].value" style="text-align: left; width: 100px; left: 425px; text-decoration-line: none; float: left; position: relative; display: block; bottom: 20px;">
+    <select class="form-control" onchange="window.location.href=this.options[this.selectedIndex].value" style="text-align: left; width: 100px; left: 425px; text-decoration-line: none; float: left; position: relative; display: block; bottom: 60px;">
         <option selected value="">Tracks</option>
         <option value="/getAllArtists">Artists</option>
         <option value="/getAllGenres">Genres</option>
     </select>
     <c:if test="${!empty listOfTracks}">
-    <table class="table" style="">
+    <table class="table" style="text-align: center; width: 800px; margin-top: 80px;">
         <thead>
         <tr>
             <th width="80">Id</th>
             <th width="120">Track Name</th>
             <th width="120">Album</th>
+            <th width="120">Artists</th>
+            <th width="120">Genres</th>
             <th width="120">Duration</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
@@ -58,7 +60,8 @@
                 <td>${track.id}</td>
                 <td>${track.name}</td>
                 <td>${track.album}</td>
-                <td>${track.album}</td>
+                <td>${track.artists}</td>
+                <td>${track.genres}</td>
                 <td>${track.duration}</td>
                 <td><a href="<c:url value='/updateTrack/${track.id}' />" >Edit</a></td>
                 <td><a href="<c:url value='/deleteTrack/${track.id}' />" >Delete</a></td>

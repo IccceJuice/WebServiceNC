@@ -1,39 +1,59 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 24.03.2019
-  Time: 20:07
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!DOCTYPE html>
 <head>
-    <title>Adding track</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Narrow Jumbotron Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/editor.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="narrow-jumbotron.css" rel="stylesheet">
 </head>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style type="text/css">
+    TABLE {
+        width: 700px; /* Ширина таблицы */
+        border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    }
+</style>
+
 <body>
-<form:form method="post" modelAttribute="track" action="/addTrack">
-    <table>
+    <table class="table" style=" margin-top: 50px; margin-left: 300px; margin-right: 70px; width: 700px; text-align: center;">
+
+        <thead>
         <tr>
-            <th colspan="2">Add Track</th>
+            <th>Track Name</th>
+            <th>Album</th>
+            <th>Duration</th>
         </tr>
-        <tr>
-            <form:hidden path="id" />
-            <td><form:label path="name">Track Name:</form:label></td>
-            <td><form:input path="name" size="30" maxlength="30"></form:input></td>
-        </tr>
-        <tr>
-            <td><form:label path="album">Album:</form:label></td>
-            <td><form:input path="album" size="30" maxlength="30"></form:input></td>
-        </tr>
-        <tr>
-            <td><form:label path="duration">Duration:</form:label></td>
-            <td><form:input path="duration" size="30" maxlength="30"></form:input></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit"
-                                   class="blue-button" /></td>
-        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" style="border: white; text-align: center;" value = ${track.name}>
+                </td>
+                <td>
+                    <input type="text" style="border: white; text-align: center;" value=${track.album}>
+                </td>
+                <td>
+                    <input type="text" style="border: white; text-align: center;" value=${track.duration}>
+                </td>
+            </tr>
+        </tbody>
     </table>
-</form:form>
+    <form action="/addTrack">
+        <button button type="submit"  class="btn btn-secondary" style=" width: 100px; margin-top: 5px; margin-left: 600px;">Save</button>
+    </form>
 </body>
 </html>

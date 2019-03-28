@@ -2,10 +2,12 @@ package team25.musiclibrary.entities;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "genre")
 @Table(name = "genre", schema = "music_store", catalog = "")
-public class Genre {
+public class Genre{
 
     @Id
     @Column(name = "id")
@@ -16,6 +18,14 @@ public class Genre {
     @Column(name = "rating")
     private int rating;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "genres")
+    private List<Track> tracks = new ArrayList<>();
+
     public Genre(String name, int rating) {
         this.name = name;
         this.rating = rating;
@@ -24,6 +34,17 @@ public class Genre {
     public Genre() {
     }
 
+    public String getTracks() {
+        String tracksNames = "";
+        int tracksSize = tracks.size();
+        for (int i = 0 ; i < tracksSize; ++i){
+            if(i > 0){
+                tracksNames += ", ";
+            }
+            tracksNames = tracksNames.concat(tracks.get(i).getName());
+        }
+        return tracksNames;
+    }
     public int getId() {
         return id;
     }

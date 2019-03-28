@@ -21,6 +21,7 @@ public class TrackController {
         List<Track> listOfTracks = trackService.getAll();
         model.addAttribute("track", new Track());
         model.addAttribute("listOfTracks", listOfTracks);
+//        model.addAttribute("artist_name", )
         return "jsp/trackList";
     }
 
@@ -29,7 +30,7 @@ public class TrackController {
         return trackService.getTrack(id);
     }
 
-    @RequestMapping(value = "/addTrack", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "/addTrack", method = RequestMethod.GET, headers = "Accept=application/json")
     public String addTrack(@ModelAttribute("track") Track track) {
         trackService.addTrack(track);
         return "redirect:/getAllTracks";
@@ -39,7 +40,13 @@ public class TrackController {
     public String updateTrack(@PathVariable("id") int id, Model model) {
         model.addAttribute("track", trackService.getTrack(id));
         model.addAttribute("listOfTracks", trackService.getAll());
-        return "jsp/trackList";
+        return "jsp/addTrack";
+    }
+
+    @RequestMapping(value= "/saveTrack", method = RequestMethod.POST, headers = "Accept=application/json")
+    public String saveTrack(@ModelAttribute("track") Track track){
+        trackService.updateTrack(track);
+        return "redirect:/getAllTracks";
     }
 
     @RequestMapping(value = "/deleteTrack/{id}", method = RequestMethod.GET, headers = "Accept=application/json")

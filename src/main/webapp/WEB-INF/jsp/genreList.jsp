@@ -37,18 +37,19 @@
 </nav>
     <div class="m-5">
     <div class="form-group" style=""></div>
-        <select class="form-control" onchange="window.location.href=this.options[this.selectedIndex].value" style="text-align: left; width: 100px; left: 425px; text-decoration-line: none; float: left; position: relative; display: block; bottom: 20px;">
+        <select class="form-control" onchange="window.location.href=this.options[this.selectedIndex].value" style="text-align: left; width: 100px; left: 425px; text-decoration-line: none; float: left; position: relative; display: block; bottom: 60px;">
             <option value="/getAllTracks">Tracks</option>
             <option value="/getAllArtists">Artists</option>
             <option selected value="">Genres</option>
         </select>
     <c:if test="${!empty listOfGenres}">
-    <table class="table" style="">
+    <table class="table" style="width: 700px; text-align: center; margin-top: 80px;">
         <thead>
         <tr>
             <th width="80">Id</th>
             <th width="120">Genre Name</th>
             <th width="120">Rating</th>
+            <th width="120">Tracks</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
@@ -59,6 +60,7 @@
                 <td>${genre.id}</td>
                 <td>${genre.name}</td>
                 <td>${genre.rating}</td>
+                <td>${genre.tracks}</td>
                 <td><a href="<c:url value='/updateGenre/${genre.id}' />" >Edit</a></td>
                 <td><a href="<c:url value='/deleteGenre/${genre.id}' />" >Delete</a></td>
             </tr>
